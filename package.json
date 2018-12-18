@@ -3,9 +3,14 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "dev": "node ./bin/www",
+    "start_server": "npm run start",
+    "start_client": "npm run start --prefix client",
+    "install_dev": "concurrently \"npm install\" \"npm install --prefix client\"",
+    "start": "concurrently \"npm run start_server\" \"npm run start_client\""
   },
   "dependencies": {
+    "concurrently": "^4.1.0",
     "cookie-parser": "~1.4.3",
     "cors": "^2.8.5",
     "debug": "~2.6.9",
@@ -18,5 +23,6 @@
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0"
-  }
+  },
+  "main": "app.js"
 }
