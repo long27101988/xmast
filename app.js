@@ -32,13 +32,13 @@ app.use(passport.initialize());
 require('./passport')
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, './client/build')));
+app.use(express.static(path.join(__dirname, '/../client/build')));
 app.use(validation())
 app.use(cors())
 
 
-app.use('/', (req, res) => {
-    res.sendFile(path.join(__dirname + './client/build/index.html'))
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname + '/../client/build/index.html'))
 })
 app.use('/api/users', usersRouter);
 module.exports = app;
