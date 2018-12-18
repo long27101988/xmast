@@ -6,7 +6,7 @@ var logger = require('morgan');
 var validation = require('express-validator');
 var cors = require('cors')
 var passport = require('passport')
-// var indexRouter = require('./routes/index');
+var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var mongoose = require('mongoose');
@@ -32,14 +32,13 @@ app.use(passport.initialize());
 require('./passport')
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, '/../client/build')));
+app.use(express.static(path.join(__dirname, 'client/build')));
 app.use(validation())
 app.use(cors())
 
 
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname + '/../client/build/index.html'))
-})
+
+app.use('/', indexRouter);
 app.use('/api/users', usersRouter);
 module.exports = app;
 
