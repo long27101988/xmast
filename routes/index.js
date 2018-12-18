@@ -5,7 +5,7 @@ var path = require('path');
 /* GET home page. */
 router.get('/', (req, res) => {
   console.log("dsfs");
-  res.sendFile(path.join(__dirname + '/../client/build/index.html'))
+  res.sendFile(path.join(__dirname + '/../clients/build/index.html'))
 })
 
 module.exports = router;
