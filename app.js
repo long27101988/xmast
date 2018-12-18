@@ -32,7 +32,7 @@ app.use(passport.initialize());
 require('./passport')
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'clients/build')));
+app.use(express.static(path.join(__dirname, 'client/build')));
 app.use(validation())
 app.use(cors())
 
