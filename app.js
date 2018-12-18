@@ -24,6 +24,7 @@ mongoose.connect(config.dbConnectString, {
 global.User = require('./models/user')
 
 var app = express();
+app.use(express.static(path.join(__dirname, 'client/build')))
 
 app.use(logger('dev'));
 app.use(express.json());
