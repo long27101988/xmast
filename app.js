@@ -12,6 +12,10 @@ var mongoose = require('mongoose');
 var config = require('./config')
 
 mongoose.connect(config.dbConnectString, {
+    auth: {
+        user: 'long',
+        password: "T@m123456"
+    },
     useNewUrlParser: true
 }).then( () => console.log('connect db seccess'));
 

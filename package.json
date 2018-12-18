@@ -3,12 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "node ./bin/www",
+    "start": "node ./bin/www",
     "start_server": "npm run start",
     "start_client": "npm run start --prefix client",
-    "install": "concurrently \"npm install\" \"npm install --prefix client\"",
     "heroku-postbuild": "cd client && npm && npm run build",
-    "start": "concurrently \"npm run start_server\" \"npm run start_client\""
+    "dev": "concurrently \"npm run start_server\" \"npm run start_client\""
   },
   "dependencies": {
     "concurrently": "^4.1.0",

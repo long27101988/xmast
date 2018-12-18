@@ -1,6 +1,6 @@
 'use strict'
 
 module.exports = {
-    dbConnectString: "mongodb://127.0.0.1:27018/getlinktest",
+    dbConnectString: "mongodb://ds041526.mlab.com:41526/xmast",
     keySecure: "test"
 }
