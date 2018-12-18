@@ -37,7 +37,7 @@ app.use(validation())
 app.use(cors())
 
 
-app.get('*', (req, res) => {
+app.use('/', (req, res) => {
     res.sendFile(path.join(__dirname + './client/build/index.html'))
 })
 app.use('/api/users', usersRouter);
