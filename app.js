@@ -6,7 +6,7 @@ var logger = require('morgan');
 var validation = require('express-validator');
 var cors = require('cors')
 var passport = require('passport')
-var indexRouter = require('./routes/index');
+// var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var mongoose = require('mongoose');
@@ -36,7 +36,11 @@ app.use(express.static(path.join(__dirname, 'client/build')));
 app.use(validation())
 app.use(cors())
 
-app.use('/', indexRouter);
+// app.use('/', indexRouter);
 app.use('/api/users', usersRouter);
+var router = express.Router();
+router.get('*', function (req, res, next) {
+    res.sendFile(path.join(__dirname + '/client/build/index.html'));
+});
 
 module.exports = app;
