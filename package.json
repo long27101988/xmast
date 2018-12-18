@@ -6,7 +6,8 @@
     "dev": "node ./bin/www",
     "start_server": "npm run start",
     "start_client": "npm run start --prefix client",
-    "install_dev": "concurrently \"npm install\" \"npm install --prefix client\"",
+    "install": "concurrently \"npm install\" \"npm install --prefix client\"",
+    "heroku-postbuild": "cd client && npm && npm run build",
     "start": "concurrently \"npm run start_server\" \"npm run start_client\""
   },
   "dependencies": {
