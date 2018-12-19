@@ -6,7 +6,7 @@ var logger = require('morgan');
 var validation = require('express-validator');
 var cors = require('cors')
 var passport = require('passport')
-var indexRouter = require('./routes/index');
+// var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var mongoose = require('mongoose');
@@ -36,10 +36,10 @@ app.use(validation())
 app.use(cors())
 
 if(process.env.NODE_ENV === 'production') {
-    app.use(express.static('client-view/build'))
+    app.use(express.static('client/build'))
     app.get('*', (req, res) => {
         console.log("dsfs");
-        res.sendFile(path.resolve(__dirname + '/../client-view' , 'build', 'index.html'))
+        res.sendFile(path.resolve(__dirname + 'client' , 'build', 'index.html'))
     })
 }
 
