@@ -39,7 +39,7 @@ if(process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, 'client-view/build')))
     app.get('*', (req, res) => {
         console.log("dsfs");
-        res.sendFile(path.resolve(__dirname + 'client-view' , 'build', 'index.html'))
+        res.sendFile(path.resolve(__dirname + '/client-view' , 'build', 'index.html'))
     })
 }
 
