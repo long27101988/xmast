@@ -37,13 +37,13 @@ app.use(cors())
 
 if(process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, 'client-view/build')))
-    router.get('*', (req, res) => {
+    app.get('*', (req, res) => {
         console.log("dsfs");
         res.sendFile(path.resolve(__dirname + 'client-view' , 'build', 'index.html'))
     })
 }
 
-app.use('/', indexRouter);
+// app.use('/', indexRouter);
 app.use('/api/users', usersRouter);
 module.exports = app;
 
